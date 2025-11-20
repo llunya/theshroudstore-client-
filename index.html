@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shroud Store | Premium Mortuary Equipment</title>
+    <title>The Shroud Store | Public & Trade</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SNIPCART CSS (For B2C Checkout) -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
     
     <style>
         /* --- CSS VARIABLES --- */
         :root {
-            --primary-dark: #37474F;   /* Dark Slate Grey */
-            --primary-light: #CFD8DC;  /* Light Grey */
-            --accent-blue: #78909C;    /* Muted Light Blue */
+            --primary-dark: #37474F;
+            --primary-light: #CFD8DC;
+            --accent-blue: #78909C;
             --bg-white: #FFFFFF;
             --bg-offwhite: #F9FAFB;
             --text-main: #263238;
@@ -23,7 +26,7 @@
             --max-width: 1200px;
         }
 
-        /* --- RESET & BASE STYLES --- */
+        /* --- RESET & BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--bg-white); line-height: 1.6; border-top: 8px solid var(--primary-dark); }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -35,33 +38,24 @@
         .logo-container { margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
         .logo-icon { width: 60px; height: 60px; margin-bottom: 15px; }
         .logo-text { font-size: 1.8rem; font-weight: 600; letter-spacing: 2px; color: var(--primary-dark); text-transform: uppercase; }
+        
         nav ul { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
         nav a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 5px; }
         nav a:hover { color: var(--primary-dark); border-bottom: 2px solid var(--accent-blue); }
 
-        /* --- CART SYSTEM STYLES --- */
-        .cart-trigger { position: absolute; top: 30px; right: 30px; cursor: pointer; font-size: 1.2rem; color: var(--primary-dark); }
-        .cart-count { background: var(--accent-blue); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: -8px; right: -8px; display: none; }
-        .cart-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: none; opacity: 0; transition: opacity 0.3s; }
-        .cart-overlay.active { display: block; opacity: 1; }
-        .cart-panel { position: fixed; top: 0; right: -400px; width: 400px; height: 100%; background: white; z-index: 1001; padding: 30px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; display: flex; flex-direction: column; }
-        .cart-overlay.active .cart-panel { right: 0; }
-        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px; }
-        .cart-items-container { flex: 1; overflow-y: auto; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f1f1f1; padding-bottom: 10px; }
-        .cart-item-details h4 { font-size: 0.9rem; color: var(--primary-dark); margin-bottom: 4px; }
-        .cart-item-details .price { font-size: 0.85rem; color: var(--text-muted); }
+        /* --- CART & ACCOUNT ICONS --- */
+        .header-actions {
+            position: absolute;
+            top: 30px; right: 30px;
+            display: flex; gap: 20px; align-items: center;
+        }
         
-        /* Cart specific quantity controls */
-        .cart-qty-controls { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
-        .cart-qty-btn { background: #ECEFF1; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; color: var(--primary-dark); font-weight: bold; }
-        .cart-qty-btn:hover { background: #CFD8DC; }
-        
-        .cart-footer { border-top: 1px solid var(--border-color); padding-top: 20px; }
-        .cart-total { display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; color: var(--primary-dark); }
-        .btn-checkout { width: 100%; padding: 15px; background-color: var(--primary-dark); color: white; text-align: center; border: none; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
-        .btn-checkout:hover { background-color: var(--accent-blue); }
-        .close-cart { cursor: pointer; font-size: 1.2rem; }
+        .snipcart-checkout { cursor: pointer; color: var(--primary-dark); font-size: 1.2rem; position: relative; }
+        .snipcart-items-count { 
+            background: var(--accent-blue); color: white; font-size: 0.7rem; 
+            padding: 2px 6px; border-radius: 50%; position: absolute; top: -8px; right: -8px; 
+        }
+        .trade-link { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; border-bottom: 1px dotted var(--text-muted); }
 
         /* --- HERO --- */
         .hero { text-align: center; padding: 100px 20px; background-color: var(--bg-offwhite); }
@@ -76,6 +70,7 @@
         .section-container { max-width: var(--max-width); margin: 80px auto; padding: 0 20px; }
         .section-title { display: table; margin: 0 auto 50px auto; font-size: 2rem; font-weight: 300; color: var(--primary-dark); position: relative; text-align: center; }
         .section-title::after { content: ''; display: block; width: 60px; height: 2px; background: var(--accent-blue); margin: 15px auto 0; }
+        
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px; }
         .product-card { background: var(--bg-white); border: 1px solid var(--border-color); transition: 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -85,52 +80,43 @@
         .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; flex-grow: 1; }
         .product-price { display: block; font-weight: 600; margin-bottom: 15px; color: var(--accent-blue); }
 
-        /* NEW: Product Action Row (Input + Button) */
-        .product-actions {
+        /* --- DUAL BUTTON ACTION ROW --- */
+        .action-row {
             display: flex;
+            flex-direction: column; /* Stack buttons on mobile */
             gap: 10px;
-            justify-content: center;
-            align-items: center;
-            margin-top: auto; /* Pushes to bottom */
+            margin-top: auto;
         }
 
-        .qty-input {
-            width: 60px;
-            padding: 10px 5px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            font-size: 1rem;
-            color: var(--primary-dark);
-            outline: none;
-        }
-        
-        .qty-input:focus { border-color: var(--accent-blue); }
-
-        .btn-add {
-            padding: 11px 20px;
+        .btn-buy {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-dark);
+            color: white;
             border: 1px solid var(--primary-dark);
-            background: var(--primary-dark);
-            color: var(--bg-white);
-            font-size: 0.85rem;
             text-transform: uppercase;
+            font-size: 0.8rem;
             letter-spacing: 1px;
-            transition: 0.3s;
             cursor: pointer;
-            flex: 1; /* Button takes remaining space */
+            transition: 0.3s;
         }
+        .btn-buy:hover { background-color: var(--accent-blue); border-color: var(--accent-blue); }
 
-        .btn-add:hover { background: var(--accent-blue); border-color: var(--accent-blue); }
+        .btn-trade {
+            width: 100%;
+            padding: 10px;
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--primary-light);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-trade:hover { border-color: var(--primary-dark); color: var(--primary-dark); }
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--primary-dark); color: var(--bg-white); padding: 60px 20px 20px; margin-top: 80px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: var(--max-width); margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
-        .footer-col h4 { margin-bottom: 20px; font-weight: 500; letter-spacing: 1px; color: var(--accent-blue); }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: #B0BEC5; font-size: 0.9rem; }
-        .footer-col ul li a:hover { color: var(--bg-white); }
-        .bottom-bar { text-align: center; padding-top: 20px; font-size: 0.8rem; color: #B0BEC5; }
-
-        /* Form Styles */
+        /* --- CONTACT & FOOTER --- */
         .contact-form-container { max-width: 600px; margin: 0 auto; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--primary-dark); }
@@ -139,13 +125,22 @@
         .submit-btn { width: 100%; padding: 15px; background-color: var(--primary-dark); color: white; border: none; font-size: 1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .submit-btn:hover { background-color: var(--accent-blue); }
         .contact-details { text-align: center; margin-top: 40px; color: var(--text-muted); }
+        
+        footer { background-color: var(--primary-dark); color: var(--bg-white); padding: 60px 20px 20px; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: var(--max-width); margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
+        .footer-col h4 { margin-bottom: 20px; font-weight: 500; letter-spacing: 1px; color: var(--accent-blue); }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #B0BEC5; font-size: 0.9rem; }
+        .bottom-bar { text-align: center; padding-top: 20px; font-size: 0.8rem; color: #B0BEC5; }
         .about-section { background-color: var(--bg-offwhite); padding: 80px 20px; text-align: center; }
         .about-content { max-width: 800px; margin: 0 auto; }
         .about-content p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.05rem; }
 
+        @media (min-width: 768px) {
+            .action-row { flex-direction: row; } /* Side by side on desktop */
+        }
         @media (max-width: 768px) {
             nav ul { flex-direction: column; gap: 10px; }
-            .cart-panel { width: 100%; right: -100%; }
         }
     </style>
 </head>
@@ -153,6 +148,15 @@
 
     <!-- HEADER -->
     <header id="home">
+        <!-- ACTIONS (Cart for B2C, Link for B2B) -->
+        <div class="header-actions">
+            <a href="#contact" class="trade-link">Trade Enquiry</a>
+            <div class="snipcart-checkout">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="snipcart-items-count">0</span>
+            </div>
+        </div>
+
         <div class="logo-container">
             <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 20 C 40 10, 60 10, 80 20 C 80 40, 80 80, 70 90 C 60 80, 40 80, 30 90 C 20 80, 20 40, 20 20 Z" stroke="#78909C" stroke-width="3" fill="none"/>
@@ -162,46 +166,20 @@
             </svg>
             <div class="logo-text">The Shroud Store</div>
         </div>
-
-        <div class="cart-trigger" onclick="toggleCart()">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cartCount">0</span>
-        </div>
-
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Trade Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- CART SIDEBAR -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-panel">
-            <div class="cart-header">
-                <h3>Your Order List</h3>
-                <span class="close-cart" onclick="toggleCart()">&times;</span>
-            </div>
-            <div class="cart-items-container" id="cartItems">
-                <p style="color:#999; text-align:center; margin-top:20px;">Your cart is empty.</p>
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total (Est):</span>
-                    <span id="cartTotal">£0.00</span>
-                </div>
-                <button class="btn-checkout" onclick="checkout()">Proceed to Order</button>
-            </div>
-        </div>
-    </div>
-
     <!-- HERO -->
     <section class="hero">
         <h1>Premium Shrouds, Caskets & Mortuary Equipment</h1>
-        <p>Providing dignified, high-quality essentials for funeral services with respect and professionalism.</p>
+        <p>Providing dignified essentials for families and funeral directors. <br>Trade accounts available for bulk purchasing.</p>
         <div class="hero-grid">
             <div class="feature-box" onclick="document.getElementById('cat-shrouds').scrollIntoView({behavior: 'smooth'})"><h3>Shroud Sets</h3></div>
             <div class="feature-box" onclick="document.getElementById('cat-packs').scrollIntoView({behavior: 'smooth'})"><h3>Shroud Packs</h3></div>
@@ -216,6 +194,7 @@
         <div id="cat-shrouds"></div>
         
         <div class="product-grid">
+            
             <!-- Product 1 -->
             <div class="product-card">
                 <div class="product-image-placeholder">Premium Linen Shroud Image</div>
@@ -223,9 +202,20 @@
                     <h3 class="product-name">Premium Linen Shroud Set</h3>
                     <p class="product-desc">100% natural linen, includes ties and headrest.</p>
                     <span class="product-price">£120.00</span>
-                    <div class="product-actions">
-                        <input type="number" class="qty-input" value="1" min="1">
-                        <button class="btn-add" onclick="addToCart(this, 'Premium Linen Shroud Set', 120)">Add</button>
+                    
+                    <div class="action-row">
+                        <!-- B2C Button: Instant Buy -->
+                        <button class="btn-buy snipcart-add-item"
+                            data-item-id="shroud-linen-001"
+                            data-item-price="120.00"
+                            data-item-url="/"
+                            data-item-name="Premium Linen Shroud Set">
+                            Buy Now
+                        </button>
+                        <!-- B2B Button: Quote -->
+                        <button class="btn-trade" onclick="requestTradeQuote('Premium Linen Shroud Set')">
+                            Trade Quote
+                        </button>
                     </div>
                 </div>
             </div>
@@ -237,9 +227,18 @@
                     <h3 class="product-name">Standard Shroud Pack (x10)</h3>
                     <p class="product-desc">Bulk pack of cotton shrouds for mortuary use.</p>
                     <span class="product-price">£450.00</span>
-                    <div class="product-actions">
-                        <input type="number" class="qty-input" value="1" min="1">
-                        <button class="btn-add" onclick="addToCart(this, 'Standard Shroud Pack', 450)">Add</button>
+                    
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item"
+                            data-item-id="shroud-pack-001"
+                            data-item-price="450.00"
+                            data-item-url="/"
+                            data-item-name="Standard Shroud Pack (x10)">
+                            Buy Now
+                        </button>
+                        <button class="btn-trade" onclick="requestTradeQuote('Standard Shroud Pack')">
+                            Trade Quote
+                        </button>
                     </div>
                 </div>
             </div>
@@ -251,54 +250,39 @@
                     <h3 class="product-name">Classic Oak Casket</h3>
                     <p class="product-desc">Traditional finish with high-quality fittings.</p>
                     <span class="product-price">£850.00</span>
-                    <div class="product-actions">
-                        <input type="number" class="qty-input" value="1" min="1">
-                        <button class="btn-add" onclick="addToCart(this, 'Classic Oak Casket', 850)">Add</button>
+                    
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item"
+                            data-item-id="casket-oak-001"
+                            data-item-price="850.00"
+                            data-item-url="/"
+                            data-item-name="Classic Oak Casket">
+                            Buy Now
+                        </button>
+                        <button class="btn-trade" onclick="requestTradeQuote('Classic Oak Casket')">
+                            Trade Quote
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image-placeholder">Willow Coffin Image</div>
-                <div class="product-info">
-                    <h3 class="product-name">Natural Willow Coffin</h3>
-                    <p class="product-desc">Eco-friendly, hand-woven sustainable materials.</p>
-                    <span class="product-price">£600.00</span>
-                    <div class="product-actions">
-                        <input type="number" class="qty-input" value="1" min="1">
-                        <button class="btn-add" onclick="addToCart(this, 'Natural Willow Coffin', 600)">Add</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
+            <!-- Product 4 (POA Only - Good for both B2B and B2C who need custom) -->
             <div class="product-card" id="cat-equip">
                 <div class="product-image-placeholder">Hydraulic Trolley Image</div>
                 <div class="product-info">
                     <h3 class="product-name">Hydraulic Mortuary Trolley</h3>
                     <p class="product-desc">Heavy-duty steel construction with variable height.</p>
                     <span class="product-price">POA</span>
-                    <div class="product-actions">
-                        <input type="number" class="qty-input" value="1" min="1">
-                        <button class="btn-add" onclick="addToCart(this, 'Hydraulic Mortuary Trolley', 0)">Add</button>
+                    
+                    <div class="action-row">
+                        <!-- Only Quote button for POA items -->
+                        <button class="btn-trade" style="width:100%" onclick="requestTradeQuote('Hydraulic Mortuary Trolley')">
+                            Request Pricing
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-image-placeholder">Refrigeration Unit Image</div>
-                <div class="product-info">
-                    <h3 class="product-name">Mobile Refrigeration Unit</h3>
-                    <p class="product-desc">Compact cooling solution for temporary storage.</p>
-                    <span class="product-price">POA</span>
-                    <div class="product-actions">
-                        <input type="number" class="qty-input" value="1" min="1">
-                        <button class="btn-add" onclick="addToCart(this, 'Mobile Refrigeration Unit', 0)">Add</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -306,38 +290,42 @@
     <section id="about" class="about-section">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
-            <p>At The Shroud Store, we understand that the funeral industry demands the highest level of respect, reliability, and quality. Our mission is to support funeral directors and mortuaries by providing dignified products that honor the deceased and comfort the bereaved.</p>
+            <p>At The Shroud Store, we serve both private families and funeral professionals. We understand that the industry demands the highest level of respect, reliability, and quality.</p>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT / TRADE ENQUIRY -->
     <section id="contact" class="section-container">
-        <h2 class="section-title">Complete Order</h2>
+        <h2 class="section-title">Trade Enquiry & Support</h2>
         <div class="contact-form-container">
-            <p style="text-align:center; margin-bottom:30px; color:var(--text-muted);">Review your items and submit to receive an official invoice.</p>
+            <p style="text-align:center; margin-bottom:30px; color:var(--text-muted);">
+                For trade accounts, bulk orders, or general assistance, please contact us below.
+            </p>
 
-            <form onsubmit="event.preventDefault(); alert('Thank you. Your order request has been sent. We will email you an invoice shortly.');">
+            <!-- REMEMBER: Change the 'action' URL to your own Formspree link -->
+            <form action="https://formspree.io/f/YOUR_UNIQUE_CODE_HERE" method="POST">
                 <div class="form-group">
                     <label for="name">Name / Company</label>
-                    <input type="text" id="name" required placeholder="Your Name / Company Name">
+                    <input type="text" name="name" id="name" required placeholder="Your Name or Funeral Home">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" required placeholder="name@example.com">
+                    <input type="email" name="email" id="email" required placeholder="name@example.com">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="For delivery coordination">
+                    <input type="tel" name="phone" id="phone" placeholder="Optional">
                 </div>
                 <div class="form-group">
-                    <label for="message">Order Details & Message</label>
-                    <textarea id="message" rows="8" required placeholder="Your selected items will appear here..."></textarea>
+                    <label for="message">Message / Quote Request</label>
+                    <textarea name="message" id="message" rows="5" required placeholder="How can we help you?"></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Submit Order Request</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
 
             <div class="contact-details">
                 <p><strong>Email:</strong> info@theshroudstore.co.uk</p>
+                <p><strong>Web:</strong> www.theshroudstore.co.uk</p>
             </div>
         </div>
     </section>
@@ -349,7 +337,7 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Trade Enquiries</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -364,7 +352,6 @@
                 <h4>Contact</h4>
                 <ul>
                     <li>info@theshroudstore.co.uk</li>
-                    <li>www.theshroudstore.co.uk</li>
                 </ul>
             </div>
         </div>
@@ -373,120 +360,24 @@
         </div>
     </footer>
 
-    <!-- CART LOGIC SCRIPT -->
+    <!-- SNIPCART SCRIPT (B2C Checkout) -->
+    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+    <div hidden id="snipcart" data-api-key="YzE1MmM4YTAtYjA5ZC00NTkzLWJjYzEtY2Q4M2E5OGI4NWE0NjM4NjM0NTIyOTg2MjIyNzcw"></div>
+
+    <!-- B2B/TRADE LOGIC -->
     <script>
-        let cart = [];
-        
-        function toggleCart() {
-            const overlay = document.getElementById('cartOverlay');
-            if(overlay.style.display === 'block') {
-                overlay.classList.remove('active');
-                setTimeout(() => { overlay.style.display = 'none'; }, 300);
-            } else {
-                overlay.style.display = 'block';
-                setTimeout(() => { overlay.classList.add('active'); }, 10);
-            }
-        }
-
-        function addToCart(btn, name, price) {
-            // Find sibling input to get quantity
-            const input = btn.parentElement.querySelector('.qty-input');
-            const qty = parseInt(input.value) || 1;
-
-            const existingItem = cart.find(item => item.name === name);
-            if(existingItem) {
-                existingItem.qty += qty;
-            } else {
-                cart.push({ name: name, price: price, qty: qty });
-            }
-            updateCartUI();
+        function requestTradeQuote(productName) {
+            const msgBox = document.getElementById('message');
+            const currentVal = msgBox.value;
             
-            // Auto open cart
-            const overlay = document.getElementById('cartOverlay');
-            if(overlay.style.display !== 'block') toggleCart();
-        }
+            const quoteText = "I am interested in a Trade Quote / Bulk Order for: " + productName;
 
-        function changeQty(index, delta) {
-            cart[index].qty += delta;
-            if(cart[index].qty <= 0) {
-                cart.splice(index, 1);
-            }
-            updateCartUI();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const cartItemsContainer = document.getElementById('cartItems');
-            const cartCount = document.getElementById('cartCount');
-            const cartTotal = document.getElementById('cartTotal');
-            
-            const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
-            cartCount.innerText = totalQty;
-            cartCount.style.display = totalQty > 0 ? 'block' : 'none';
-
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
-
-            if(cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p style="color:#999; text-align:center; margin-top:20px;">Your cart is empty.</p>';
+            if(currentVal.length > 0) {
+                msgBox.value = currentVal + "\n" + quoteText;
             } else {
-                cart.forEach((item, index) => {
-                    const itemTotal = item.price * item.qty;
-                    total += itemTotal;
-                    
-                    const priceDisplay = item.price === 0 ? 'POA' : `£${item.price}`;
-                    // If POA, show POA for total too, otherwise calculated cost
-                    const rowTotal = item.price === 0 ? 'POA' : `£${itemTotal.toFixed(2)}`;
-
-                    const itemEl = document.createElement('div');
-                    itemEl.classList.add('cart-item');
-                    itemEl.innerHTML = `
-                        <div class="cart-item-details">
-                            <h4>${item.name}</h4>
-                            <span class="price">Price: ${priceDisplay}</span>
-                            <div class="cart-qty-controls">
-                                <button class="cart-qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                                <span>${item.qty}</span>
-                                <button class="cart-qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                            </div>
-                        </div>
-                        <div style="text-align:right;">
-                            <strong style="display:block; margin-bottom:5px;">${rowTotal}</strong>
-                            <i class="fas fa-trash remove-item" onclick="removeFromCart(${index})"></i>
-                        </div>
-                    `;
-                    cartItemsContainer.appendChild(itemEl);
-                });
+                msgBox.value = quoteText;
             }
-
-            cartTotal.innerText = "£" + total.toFixed(2);
-        }
-
-        function checkout() {
-            if(cart.length === 0) {
-                alert("Your cart is empty!");
-                return;
-            }
-
-            let orderString = "I would like to place an order for the following items:\n\n";
-            let total = 0;
-
-            cart.forEach(item => {
-                const priceDisplay = item.price === 0 ? 'POA' : `£${item.price}`;
-                const lineTotal = item.price === 0 ? 0 : (item.price * item.qty);
-                total += lineTotal;
-                orderString += `- ${item.name} (x${item.qty}) @ ${priceDisplay}\n`;
-            });
-
-            orderString += `\nEstimated Total: £${total.toFixed(2)}`;
-            orderString += `\n\nPlease confirm availability and send an invoice.`;
-
-            document.getElementById('message').value = orderString;
-            toggleCart();
+            
             document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
         }
     </script>
