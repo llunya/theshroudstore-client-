@@ -80,12 +80,31 @@
         .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; flex-grow: 1; }
         .product-price { display: block; font-weight: 600; margin-bottom: 15px; color: var(--accent-blue); }
 
-        /* --- DUAL BUTTON ACTION ROW --- */
+        /* --- QUANTITY & ACTION ROW --- */
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: auto; /* Push to bottom */
+            margin-bottom: 15px;
+        }
+
+        .qty-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        .qty-input {
+            width: 60px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid var(--primary-light);
+            font-size: 1rem;
+            color: var(--primary-dark);
+        }
+        
         .action-row {
             display: flex;
-            flex-direction: column; /* Stack buttons on mobile */
+            flex-direction: column;
             gap: 10px;
-            margin-top: auto;
         }
 
         .btn-buy {
@@ -137,7 +156,7 @@
         .about-content p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.05rem; }
 
         @media (min-width: 768px) {
-            .action-row { flex-direction: row; } /* Side by side on desktop */
+            .action-row { flex-direction: row; }
         }
         @media (max-width: 768px) {
             nav ul { flex-direction: column; gap: 10px; }
@@ -148,7 +167,6 @@
 
     <!-- HEADER -->
     <header id="home">
-        <!-- ACTIONS (Cart for B2C, Link for B2B) -->
         <div class="header-actions">
             <a href="#contact" class="trade-link">Trade Enquiry</a>
             <div class="snipcart-checkout">
@@ -195,7 +213,7 @@
         
         <div class="product-grid">
             
-            <!-- Product 1 -->
+            <!-- Product 1: Premium Shroud -->
             <div class="product-card">
                 <div class="product-image-placeholder">Premium Linen Shroud Image</div>
                 <div class="product-info">
@@ -203,24 +221,31 @@
                     <p class="product-desc">100% natural linen, includes ties and headrest.</p>
                     <span class="product-price">£120.00</span>
                     
+                    <!-- Quantity Selector -->
+                    <div class="qty-wrapper">
+                        <span class="qty-label">Qty:</span>
+                        <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                    </div>
+
                     <div class="action-row">
-                        <!-- B2C Button: Instant Buy -->
+                        <!-- B2C Button -->
                         <button class="btn-buy snipcart-add-item"
                             data-item-id="shroud-linen-001"
                             data-item-price="120.00"
                             data-item-url="/"
-                            data-item-name="Premium Linen Shroud Set">
+                            data-item-name="Premium Linen Shroud Set"
+                            data-item-quantity="1">
                             Buy Now
                         </button>
-                        <!-- B2B Button: Quote -->
-                        <button class="btn-trade" onclick="requestTradeQuote('Premium Linen Shroud Set')">
+                        <!-- B2B Button -->
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Premium Linen Shroud Set')">
                             Trade Quote
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 2: Bulk Pack -->
             <div class="product-card" id="cat-packs">
                 <div class="product-image-placeholder">Standard Shroud Pack Image</div>
                 <div class="product-info">
@@ -228,22 +253,28 @@
                     <p class="product-desc">Bulk pack of cotton shrouds for mortuary use.</p>
                     <span class="product-price">£450.00</span>
                     
+                    <div class="qty-wrapper">
+                        <span class="qty-label">Qty:</span>
+                        <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                    </div>
+
                     <div class="action-row">
                         <button class="btn-buy snipcart-add-item"
                             data-item-id="shroud-pack-001"
                             data-item-price="450.00"
                             data-item-url="/"
-                            data-item-name="Standard Shroud Pack (x10)">
+                            data-item-name="Standard Shroud Pack (x10)"
+                            data-item-quantity="1">
                             Buy Now
                         </button>
-                        <button class="btn-trade" onclick="requestTradeQuote('Standard Shroud Pack')">
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Standard Shroud Pack')">
                             Trade Quote
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 3: Oak Casket -->
             <div class="product-card" id="cat-caskets">
                 <div class="product-image-placeholder">Oak Veneer Casket Image</div>
                 <div class="product-info">
@@ -251,22 +282,57 @@
                     <p class="product-desc">Traditional finish with high-quality fittings.</p>
                     <span class="product-price">£850.00</span>
                     
+                    <div class="qty-wrapper">
+                        <span class="qty-label">Qty:</span>
+                        <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                    </div>
+
                     <div class="action-row">
                         <button class="btn-buy snipcart-add-item"
                             data-item-id="casket-oak-001"
                             data-item-price="850.00"
                             data-item-url="/"
-                            data-item-name="Classic Oak Casket">
+                            data-item-name="Classic Oak Casket"
+                            data-item-quantity="1">
                             Buy Now
                         </button>
-                        <button class="btn-trade" onclick="requestTradeQuote('Classic Oak Casket')">
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Classic Oak Casket')">
                             Trade Quote
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 4 (POA Only - Good for both B2B and B2C who need custom) -->
+             <!-- Product 4: Willow Coffin -->
+             <div class="product-card">
+                <div class="product-image-placeholder">Willow Coffin Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Natural Willow Coffin</h3>
+                    <p class="product-desc">Eco-friendly, hand-woven sustainable materials.</p>
+                    <span class="product-price">£600.00</span>
+                    
+                    <div class="qty-wrapper">
+                        <span class="qty-label">Qty:</span>
+                        <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item"
+                            data-item-id="coffin-willow-001"
+                            data-item-price="600.00"
+                            data-item-url="/"
+                            data-item-name="Natural Willow Coffin"
+                            data-item-quantity="1">
+                            Buy Now
+                        </button>
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Natural Willow Coffin')">
+                            Trade Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: Hydraulic Trolley (POA) -->
             <div class="product-card" id="cat-equip">
                 <div class="product-image-placeholder">Hydraulic Trolley Image</div>
                 <div class="product-info">
@@ -274,9 +340,34 @@
                     <p class="product-desc">Heavy-duty steel construction with variable height.</p>
                     <span class="product-price">POA</span>
                     
+                    <div class="qty-wrapper">
+                        <span class="qty-label">Qty:</span>
+                        <input type="number" class="qty-input" value="1" min="1">
+                    </div>
+
                     <div class="action-row">
-                        <!-- Only Quote button for POA items -->
-                        <button class="btn-trade" style="width:100%" onclick="requestTradeQuote('Hydraulic Mortuary Trolley')">
+                        <button class="btn-trade" style="width:100%" onclick="requestTradeQuote(this, 'Hydraulic Mortuary Trolley')">
+                            Request Pricing
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Refrigeration Unit (POA) -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Refrigeration Unit Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Mobile Refrigeration Unit</h3>
+                    <p class="product-desc">Compact cooling solution for temporary storage.</p>
+                    <span class="product-price">POA</span>
+                    
+                    <div class="qty-wrapper">
+                        <span class="qty-label">Qty:</span>
+                        <input type="number" class="qty-input" value="1" min="1">
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-trade" style="width:100%" onclick="requestTradeQuote(this, 'Mobile Refrigeration Unit')">
                             Request Pricing
                         </button>
                     </div>
@@ -362,15 +453,36 @@
 
     <!-- SNIPCART SCRIPT (B2C Checkout) -->
     <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-    <div hidden id="snipcart" data-api-key="YzE1MmM4YTAtYjA5ZC00NTkzLWJjYzEtY2Q4M2E5OGI4NWE0NjM4NjM0NTIyOTg2MjIyNzcw"></div>
+    <div hidden id="snipcart" data-api-key="ST_ODNhMGU0ZmItMGJhMS00ZWQ5LWE4ZjctOTJmMGNhNzE4YzRhNjM4OTkyNDI3Njk1ODc2OTAw"></div>
 
-    <!-- B2B/TRADE LOGIC -->
+    <!-- SCRIPTS -->
     <script>
-        function requestTradeQuote(productName) {
+        // 1. UPDATE SNIPCART BUTTON when quantity input changes
+        function updateSnipcartQty(input) {
+            // Find the Buy button in the same card
+            const card = input.closest('.product-info');
+            const buyBtn = card.querySelector('.snipcart-add-item');
+            
+            if(buyBtn) {
+                // Update the data-item-quantity attribute
+                buyBtn.setAttribute('data-item-quantity', input.value);
+            }
+        }
+
+        // 2. UPDATE CONTACT FORM when Trade Quote is clicked
+        function requestTradeQuote(btn, productName) {
+            // Find the quantity input in the same card
+            const card = btn.closest('.product-info');
+            const qtyInput = card.querySelector('.qty-input');
+            
+            // Default to 1 if no input found (fallback)
+            const qty = qtyInput ? qtyInput.value : 1;
+
             const msgBox = document.getElementById('message');
             const currentVal = msgBox.value;
             
-            const quoteText = "I am interested in a Trade Quote / Bulk Order for: " + productName;
+            // Construct the message
+            const quoteText = `I am interested in a Trade Quote for: ${productName} (Qty: ${qty})`;
 
             if(currentVal.length > 0) {
                 msgBox.value = currentVal + "\n" + quoteText;
