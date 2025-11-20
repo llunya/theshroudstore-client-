@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shroud Store | Premium Mortuary Equipment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-dark: #37474F;   /* Dark Slate Grey */
+            --primary-light: #CFD8DC;  /* Light Grey */
+            --accent-blue: #78909C;    /* Muted Light Blue */
+            --bg-white: #FFFFFF;
+            --bg-offwhite: #F9FAFB;
+            --text-main: #263238;
+            --text-muted: #607D8B;
+            --border-color: #ECEFF1;
+            --max-width: 1200px;
+        }
+
+        /* --- RESET & BASE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            /* Top Letterhead Strip */
+            border-top: 8px solid var(--primary-dark);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--bg-white);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* CSS-only Draped Cloth Icon Placeholder */
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--bg-offwhite);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .feature-box {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-blue);
+        }
+
+        .feature-box h3 {
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .section-container {
+            max-width: var(--max-width);
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-blue);
+            margin: 15px auto 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            opacity: 0.5;
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        .btn-quote {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 1px solid var(--primary-dark);
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-quote:hover {
+            background: var(--primary-dark);
+            color: var(--bg-white);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            background-color: var(--bg-offwhite);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--primary-light);
+            background: var(--bg-offwhite);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-dark);
+            color: white;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        .contact-details {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: var(--accent-blue);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #B0BEC5;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--bg-white);
+        }
+
+        .bottom-bar {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #B0BEC5;
+        }
+
+        /* Mobile Nav Adjustment */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="home">
+        <div class="logo-container">
+            <!-- SVG Placeholder for Draped Cloth Logo -->
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stylized drape shape -->
+                <path d="M20 20 C 40 10, 60 10, 80 20 C 80 40, 80 80, 70 90 C 60 80, 40 80, 30 90 C 20 80, 20 40, 20 20 Z" stroke="#78909C" stroke-width="3" fill="none"/>
+                <path d="M35 25 C 45 35, 55 35, 65 25" stroke="#78909C" stroke-width="2" fill="none"/>
+                <path d="M30 90 L 30 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
+                <path d="M70 90 L 70 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
+            </svg>
+            <div class="logo-text">The Shroud Store</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Premium Shrouds, Caskets & Mortuary Equipment</h1>
+        <p>Providing dignified, high-quality essentials for funeral services with respect and professionalism.</p>
+        
+        <div class="hero-grid">
+            <div class="feature-box" onclick="document.getElementById('cat-shrouds').scrollIntoView({behavior: 'smooth'})">
+                <h3>Shroud Sets</h3>
+            </div>
+            <div class="feature-box" onclick="document.getElementById('cat-packs').scrollIntoView({behavior: 'smooth'})">
+                <h3>Shroud Packs</h3>
+            </div>
+            <div class="feature-box" onclick="document.getElementById('cat-caskets').scrollIntoView({behavior: 'smooth'})">
+                <h3>Caskets & Coffins</h3>
+            </div>
+            <div class="feature-box" onclick="document.getElementById('cat-equip').scrollIntoView({behavior: 'smooth'})">
+                <h3>Mortuary Equipment</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="section-container">
+        <h2 class="section-title">Our Collection</h2>
+        
+        <!-- Filter/Cat ID targets for scrolling -->
+        <div id="cat-shrouds"></div>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Premium Linen Shroud Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Premium Linen Shroud Set</h3>
+                    <p class="product-desc">100% natural linen, includes ties and headrest.</p>
+                    <span class="product-price">£120.00</span>
+                    <button class="btn-quote" onclick="addToEnquiry('Premium Linen Shroud Set')">Request Quote</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" id="cat-packs">
+                <div class="product-image-placeholder">Standard Shroud Pack Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Standard Shroud Pack (x10)</h3>
+                    <p class="product-desc">Bulk pack of cotton shrouds for mortuary use.</p>
+                    <span class="product-price">£450.00</span>
+                    <button class="btn-quote" onclick="addToEnquiry('Standard Shroud Pack')">Request Quote</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" id="cat-caskets">
+                <div class="product-image-placeholder">Oak Veneer Casket Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Classic Oak Casket</h3>
+                    <p class="product-desc">Traditional finish with high-quality fittings.</p>
+                    <span class="product-price">£850.00</span>
+                    <button class="btn-quote" onclick="addToEnquiry('Classic Oak Casket')">Request Quote</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Willow Coffin Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Natural Willow Coffin</h3>
+                    <p class="product-desc">Eco-friendly, hand-woven sustainable materials.</p>
+                    <span class="product-price">£600.00</span>
+                    <button class="btn-quote" onclick="addToEnquiry('Natural Willow Coffin')">Request Quote</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" id="cat-equip">
+                <div class="product-image-placeholder">Hydraulic Trolley Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Hydraulic Mortuary Trolley</h3>
+                    <p class="product-desc">Heavy-duty steel construction with variable height.</p>
+                    <span class="product-price">POA</span>
+                    <button class="btn-quote" onclick="addToEnquiry('Hydraulic Mortuary Trolley')">Request Quote</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Refrigeration Unit Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Mobile Refrigeration Unit</h3>
+                    <p class="product-desc">Compact cooling solution for temporary storage.</p>
+                    <span class="product-price">POA</span>
+                    <button class="btn-quote" onclick="addToEnquiry('Mobile Refrigeration Unit')">Request Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about" class="about-section">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>At The Shroud Store, we understand that the funeral industry demands the highest level of respect, reliability, and quality. Our mission is to support funeral directors and mortuaries by providing dignified products that honor the deceased and comfort the bereaved.</p>
+            <p>We source only the finest materials for our shrouds and coffins, ensuring that every item meets rigorous professional standards. With a focus on calm, efficient service, we act as a silent partner in your care for the community.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-container">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div class="contact-form-container">
+            <form onsubmit="event.preventDefault(); alert('Thank you. Your enquiry has been sent.');">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Your Name / Company Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Optional">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message / Quote Request</label>
+                    <textarea id="message" rows="5" required placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Enquiry</button>
+            </form>
+
+            <div class="contact-details">
+                <p><strong>Email:</strong> info@theshroudstore.co.uk</p>
+                <p><strong>Web:</strong> www.theshroudstore.co.uk</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Shroud Store</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#products">Shroud Sets</a></li>
+                    <li><a href="#products">Shroud Packs</a></li>
+                    <li><a href="#products">Caskets & Coffins</a></li>
+                    <li><a href="#products">Mortuary Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>info@theshroudstore.co.uk</li>
+                    <li>www.theshroudstore.co.uk</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            &copy; 2023 The Shroud Store. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to populate message box when "Request Quote" is clicked
+        function addToEnquiry(productName) {
+            const msgBox = document.getElementById('message');
+            const currentVal = msgBox.value;
+            
+            if(currentVal.length > 0) {
+                msgBox.value = currentVal + "\nI would like a quote for: " + productName;
+            } else {
+                msgBox.value = "I would like a quote for: " + productName;
+            }
+            
+            document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+
+</body>
+</html>
