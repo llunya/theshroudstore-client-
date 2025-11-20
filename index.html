@@ -393,7 +393,7 @@
                 For trade accounts, bulk orders, or general assistance, please contact us below.
             </p>
 
-            <!-- REMEMBER: Change the 'action' URL to your own Formspree link -->
+            <!-- REMEMBER: Change the 'action' URL below to your own Formspree link -->
             <form action="https://formspree.io/f/YOUR_UNIQUE_CODE_HERE" method="POST">
                 <div class="form-group">
                     <label for="name">Name / Company</label>
@@ -453,35 +453,32 @@
 
     <!-- SNIPCART SCRIPT (B2C Checkout) -->
     <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-    <div hidden id="snipcart" data-api-key="ST_ODNhMGU0ZmItMGJhMS00ZWQ5LWE4ZjctOTJmMGNhNzE4YzRhNjM4OTkyNDI3Njk1ODc2OTAw"></div>
+    <!-- API KEY INJECTED BELOW with GBP CURRENCY SETTING -->
+    <div hidden id="snipcart" 
+         data-api-key="ST_ODNhMGU0ZmItMGJhMS00ZWQ5LWE4ZjctOTJmMGNhNzE4YzRhNjM4OTkyNDI3Njk1ODc2OTAw"
+         data-currency="gbp">
+    </div>
 
     <!-- SCRIPTS -->
     <script>
         // 1. UPDATE SNIPCART BUTTON when quantity input changes
         function updateSnipcartQty(input) {
-            // Find the Buy button in the same card
             const card = input.closest('.product-info');
             const buyBtn = card.querySelector('.snipcart-add-item');
             
             if(buyBtn) {
-                // Update the data-item-quantity attribute
                 buyBtn.setAttribute('data-item-quantity', input.value);
             }
         }
 
         // 2. UPDATE CONTACT FORM when Trade Quote is clicked
         function requestTradeQuote(btn, productName) {
-            // Find the quantity input in the same card
             const card = btn.closest('.product-info');
             const qtyInput = card.querySelector('.qty-input');
-            
-            // Default to 1 if no input found (fallback)
             const qty = qtyInput ? qtyInput.value : 1;
 
             const msgBox = document.getElementById('message');
             const currentVal = msgBox.value;
-            
-            // Construct the message
             const quoteText = `I am interested in a Trade Quote for: ${productName} (Qty: ${qty})`;
 
             if(currentVal.length > 0) {
