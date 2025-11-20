@@ -150,16 +150,15 @@
             padding: 0 20px;
         }
 
+        /* FIXED SECTION TITLE CSS */
         .section-title {
-            text-align: center;
-            margin-bottom: 50px;
+            display: table; /* Shrinks width to fit content */
+            margin: 0 auto 50px auto; /* Centers the table element */
             font-size: 2rem;
             font-weight: 300;
             color: var(--primary-dark);
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            text-align: center;
         }
         
         .section-title::after {
@@ -168,7 +167,7 @@
             width: 60px;
             height: 2px;
             background: var(--accent-blue);
-            margin: 15px auto 0;
+            margin: 15px auto 0; /* Centers the line under the text */
         }
 
         .product-grid {
@@ -380,7 +379,6 @@
         <div class="logo-container">
             <!-- SVG Placeholder for Draped Cloth Logo -->
             <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Stylized drape shape -->
                 <path d="M20 20 C 40 10, 60 10, 80 20 C 80 40, 80 80, 70 90 C 60 80, 40 80, 30 90 C 20 80, 20 40, 20 20 Z" stroke="#78909C" stroke-width="3" fill="none"/>
                 <path d="M35 25 C 45 35, 55 35, 65 25" stroke="#78909C" stroke-width="2" fill="none"/>
                 <path d="M30 90 L 30 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
@@ -570,7 +568,6 @@
     </footer>
 
     <script>
-        // Simple script to populate message box when "Request Quote" is clicked
         function addToEnquiry(productName) {
             const msgBox = document.getElementById('message');
             const currentVal = msgBox.value;
