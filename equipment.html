@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shroud Store | Equipment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-actions">
+            <a href="contact.html" class="trade-link">Mosque & Trade Accounts</a>
+            <div class="snipcart-checkout">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="snipcart-items-count">0</span>
+            </div>
+        </div>
+        <div class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 20 C 40 10, 60 10, 80 20 C 80 40, 80 80, 70 90 C 60 80, 40 80, 30 90 C 20 80, 20 40, 20 20 Z" stroke="#78909C" stroke-width="3" fill="none"/>
+                <path d="M35 25 C 45 35, 55 35, 65 25" stroke="#78909C" stroke-width="2" fill="none"/>
+                <path d="M30 90 L 30 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
+                <path d="M70 90 L 70 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
+            </svg>
+            <div class="logo-text">The Shroud Store</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="male.html">Male Kafn</a></li>
+                <li><a href="female.html">Female Kafn</a></li>
+                <li><a href="equipment.html" class="active">Equipment</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section-container">
+        <h2 class="section-title">Ghusl & Burial Equipment</h2>
+        <div class="product-grid">
+            
+            <!-- Ghusl Kit -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Ghusl Essentials Kit Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Ghusl Essentials Kit</h3>
+                    <p class="product-desc">Includes Camphor, Sidr (Lotus) leaves, cotton wool, gloves, and soap.</p>
+                    <span class="product-price">£25.00</span>
+                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item" data-item-id="ghusl-kit-001" data-item-price="25.00" data-item-url="/equipment.html" data-item-name="Ghusl Essentials Kit" data-item-description="Camphor, Sidr, Cotton, Gloves" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F" data-item-quantity="1">Add to Cart</button>
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Ghusl Essentials Kit')">Bulk Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Burial Casket -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Simple Burial Casket Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Simple Muslim Burial Casket</h3>
+                    <p class="product-desc">Plain wood, unpolished, suitable for Janazah prayer and transport.</p>
+                    <span class="product-price">£450.00</span>
+                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item" data-item-id="casket-simple-001" data-item-price="450.00" data-item-url="/equipment.html" data-item-name="Simple Muslim Casket" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F" data-item-quantity="1">Add to Cart</button>
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Simple Muslim Casket')">Bulk Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ghusl Table (POA) -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Stainless Steel Ghusl Table</div>
+                <div class="product-info">
+                    <h3 class="product-name">Stainless Steel Ghusl Table</h3>
+                    <p class="product-desc">Perforated top for water drainage, hydraulic height adjustment.</p>
+                    <span class="product-price">POA</span>
+                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1"></div>
+                    <div class="action-row">
+                        <button class="btn-trade" style="width:100%" onclick="requestTradeQuote(this, 'Stainless Steel Ghusl Table')">Request Pricing</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Shroud Store</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="male.html">Male Kafn</a></li>
+                    <li><a href="female.html">Female Kafn</a></li>
+                    <li><a href="equipment.html">Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>info@theshroudstore.co.uk</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">&copy; 2025 The Shroud Store. All Rights Reserved.</div>
+    </footer>
+
+    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+    <div hidden id="snipcart" data-api-key="ZWY2YTRlZmYtYTUzMi00ZWJlLTlkOTItMjM5ZTRkNTJmMmZjNjM4OTkyNDI3MzM0NzY5OTQ1" data-currency="gbp"></div>
+    <script src="script.js"></script>
+</body>
+</html>

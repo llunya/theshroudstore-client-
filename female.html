@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shroud Store | Islamic Burial Supplies</title>
+    <title>The Shroud Store | Female Kafn</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
@@ -29,9 +29,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="male.html">Male Kafn</a></li>
-                <li><a href="female.html">Female Kafn</a></li>
+                <li><a href="female.html" class="active">Female Kafn</a></li>
                 <li><a href="equipment.html">Equipment</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -39,14 +39,40 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Sunnah Compliant Kafn & Funeral Supplies</h1>
-        <p>Providing high-quality 100% cotton shrouds, Ghusl essentials, and burial equipment for the Muslim community.</p>
-        <div class="hero-grid">
-            <div class="feature-box" onclick="window.location.href='male.html'"><h3>Male Kafn Sets</h3></div>
-            <div class="feature-box" onclick="window.location.href='female.html'"><h3>Female Kafn Sets</h3></div>
-            <div class="feature-box" onclick="window.location.href='equipment.html'"><h3>Ghusl Kits</h3></div>
-            <div class="feature-box" onclick="window.location.href='equipment.html'"><h3>Burial Equipment</h3></div>
+    <section class="section-container">
+        <h2 class="section-title">Female Kafn Collection</h2>
+        <div class="product-grid">
+            
+            <!-- Female Set -->
+            <div class="product-card">
+                <div class="product-image-placeholder">Female Kafn Set Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Female Sunnah Kafn Set (5pc)</h3>
+                    <p class="product-desc">Complete 5-piece set: Lifafah, Izaar, Qamees, Sinaband, and Hijab.</p>
+                    <span class="product-price">£55.00</span>
+                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item" data-item-id="kafn-female-001" data-item-price="55.00" data-item-url="/female.html" data-item-name="Female Sunnah Kafn Set (5pc)" data-item-description="5 pieces: Lifafah, Sinaband, Izaar, Qamees, Hijab" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F" data-item-quantity="1">Add to Cart</button>
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Female Sunnah Kafn Set')">Bulk Quote</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Cotton Roll -->
+             <div class="product-card">
+                <div class="product-image-placeholder">Cotton Roll Image</div>
+                <div class="product-info">
+                    <h3 class="product-name">Premium Cotton Roll (60m)</h3>
+                    <p class="product-desc">High-quality white cotton fabric roll for custom kafn cutting.</p>
+                    <span class="product-price">£120.00</span>
+                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
+                    <div class="action-row">
+                        <button class="btn-buy snipcart-add-item" data-item-id="cotton-roll-60m" data-item-price="120.00" data-item-url="/female.html" data-item-name="Premium Cotton Roll (60m)" data-item-description="100% Cotton, White" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F" data-item-quantity="1">Add to Cart</button>
+                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Premium Cotton Roll')">Bulk Quote</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
