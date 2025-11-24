@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shroud Store | Female Kafn</title>
+    <title>The Shroud Store | Female Kafan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
@@ -19,13 +19,7 @@
             </div>
         </div>
         <div class="logo-container">
-            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 20 C 40 10, 60 10, 80 20 C 80 40, 80 80, 70 90 C 60 80, 40 80, 30 90 C 20 80, 20 40, 20 20 Z" stroke="#78909C" stroke-width="3" fill="none"/>
-                <path d="M35 25 C 45 35, 55 35, 65 25" stroke="#78909C" stroke-width="2" fill="none"/>
-                <path d="M30 90 L 30 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
-                <path d="M70 90 L 70 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
-            </svg>
-            <div class="logo-text">The Shroud Store</div>
+            <a href="index.html"><img src="logo.jpeg" alt="The Shroud Store" class="site-logo"></a>
         </div>
         <nav>
             <ul>
@@ -40,39 +34,56 @@
     </header>
 
     <section class="section-container">
-        <h2 class="section-title">Female Kafn Collection</h2>
-        <div class="product-grid">
-            
-            <!-- Female Set -->
-            <div class="product-card">
-                <div class="product-image-placeholder">Female Kafn Set Image</div>
-                <div class="product-info">
-                    <h3 class="product-name">Female Sunnah Kafn Set (5pc)</h3>
-                    <p class="product-desc">Complete 5-piece set: Lifafah, Izaar, Qamees, Sinaband, and Hijab.</p>
-                    <span class="product-price">£55.00</span>
-                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
-                    <div class="action-row">
-                        <button class="btn-buy snipcart-add-item" data-item-id="kafn-female-001" data-item-price="55.00" data-item-url="/female.html" data-item-name="Female Sunnah Kafn Set (5pc)" data-item-description="5 pieces: Lifafah, Sinaband, Izaar, Qamees, Hijab" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F" data-item-quantity="1">Add to Cart</button>
-                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Female Sunnah Kafn Set')">Bulk Quote</button>
-                    </div>
+        <h2 class="section-title">Female Kafan Collection</h2>
+        
+        <div class="featured-product">
+            <div class="featured-image">
+                <!-- Make sure you have an image named female-pack.jpg -->
+                <img src="female-pack.jpg" onerror="this.src='https://via.placeholder.com/500x500/CFD8DC/37474F?text=Female+Pack+Image'" alt="Complete Female Kafan & Ghusl Pack">
+            </div>
+            <div class="featured-details">
+                <span class="stock-badge">Complete Sunnah Pack</span>
+                <h3 class="featured-title">Female Kafan & Ghusl Pack</h3>
+                <span class="featured-price">£55.00</span>
+                <p>A comprehensive, all-in-one pack containing the full 5-piece Sunnah Kafan for women, plus all essential Ghusl protective wear and cleansing items.</p>
+                
+                <h4>Included in this pack:</h4>
+                <ul class="content-list">
+                    <li><i class="fas fa-check"></i> <b>5x Kafan Sheets</b> (Lifafah, Izaar, Qamees, Sinaband, Hijab)</li>
+                    <li><i class="fas fa-check"></i> 2x Sattar Cloths (50" x 40")</li>
+                    <li><i class="fas fa-check"></i> 6x Aprons</li>
+                    <li><i class="fas fa-check"></i> 6x Pairs of Gloves</li>
+                    <li><i class="fas fa-check"></i> 6x Face Masks</li>
+                    <li><i class="fas fa-check"></i> 1x Bin Bag / Waste Bag</li>
+                    <li><i class="fas fa-check"></i> 1x Attir (Perfume)</li>
+                    <li><i class="fas fa-check"></i> 1x Camphor (Kafur)</li>
+                    <li><i class="fas fa-check"></i> 4x Camphor Tablets</li>
+                    <li><i class="fas fa-check"></i> Cotton Wool & Soap</li>
+                    <li><i class="fas fa-check"></i> 2x Towels</li>
+                    <li><i class="fas fa-check"></i> 3x Ties</li>
+                </ul>
+
+                <div class="qty-wrapper" style="justify-content: flex-start;">
+                    <span class="qty-label">Qty:</span>
+                    <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                </div>
+
+                <div class="action-row">
+                    <button class="btn-buy snipcart-add-item" 
+                        data-item-id="female-complete-pack-001" 
+                        data-item-price="55.00" 
+                        data-item-url="/female.html" 
+                        data-item-name="Female Kafan & Ghusl Pack" 
+                        data-item-description="Complete set: 5pc Kafan, Sattar Cloth, Aprons, Gloves, Masks, Camphor, etc." 
+                        data-item-image="female-pack.jpg" 
+                        data-item-quantity="1">
+                        Add to Cart
+                    </button>
+                    <button class="btn-trade" onclick="requestTradeQuote(this, 'Female Kafan & Ghusl Pack')">
+                        Bulk Quote
+                    </button>
                 </div>
             </div>
-
-             <!-- Cotton Roll -->
-             <div class="product-card">
-                <div class="product-image-placeholder">Cotton Roll Image</div>
-                <div class="product-info">
-                    <h3 class="product-name">Premium Cotton Roll (60m)</h3>
-                    <p class="product-desc">High-quality white cotton fabric roll for custom kafn cutting.</p>
-                    <span class="product-price">£120.00</span>
-                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
-                    <div class="action-row">
-                        <button class="btn-buy snipcart-add-item" data-item-id="cotton-roll-60m" data-item-price="120.00" data-item-url="/female.html" data-item-name="Premium Cotton Roll (60m)" data-item-description="100% Cotton, White" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F" data-item-quantity="1">Add to Cart</button>
-                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Premium Cotton Roll')">Bulk Quote</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
