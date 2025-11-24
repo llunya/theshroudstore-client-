@@ -107,3 +107,64 @@ footer { background-color: var(--primary-dark); color: var(--bg-white); padding:
     nav ul { flex-direction: column; gap: 10px; } 
     .header-actions { position: relative; top: auto; right: auto; justify-content: center; margin-bottom: 20px; }
 }
+
+/* --- FEATURED PRODUCT LAYOUT (Add to bottom of style.css) --- */
+.featured-product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+.featured-image {
+    flex: 1 1 400px;
+    padding: 10px;
+    border: 1px solid #f5f5f5;
+}
+.featured-details {
+    flex: 1 1 400px;
+}
+.featured-title {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+.featured-price {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
+}
+.content-list {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px;
+}
+.content-list li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+}
+.content-list li i {
+    color: #27ae60; /* Green Checkmark */
+    margin-right: 8px;
+    font-size: 0.8rem;
+}
+.stock-badge {
+    background: #E8F5E9;
+    color: #2E7D32;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
