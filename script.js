@@ -1,11 +1,10 @@
 /* 
    THE SHROUD STORE - MAIN SCRIPT 
-   Handles Cart Logic & Trade Quote Redirects
 */
 
-// 1. UPDATE SNIPCART BUTTON when quantity input changes
+// 1. UPDATE SNIPCART BUTTON
 function updateSnipcartQty(input) {
-    // Fix: Look for either .product-info (Grid Item) OR .featured-details (Featured Pack)
+    // Checks for grid layout OR featured layout
     const card = input.closest('.product-info, .featured-details');
     
     if (card) {
@@ -18,7 +17,7 @@ function updateSnipcartQty(input) {
 
 // 2. REDIRECT FOR TRADE QUOTE
 function requestTradeQuote(btn, productName) {
-    // Fix: Look for either .product-info (Grid Item) OR .featured-details (Featured Pack)
+    // Checks for grid layout OR featured layout
     const card = btn.closest('.product-info, .featured-details');
     
     if (!card) {
@@ -29,7 +28,6 @@ function requestTradeQuote(btn, productName) {
     const qtyInput = card.querySelector('.qty-input');
     const qty = qtyInput ? qtyInput.value : 1;
 
-    // Redirect to contact page with parameters
     const url = `contact.html?product=${encodeURIComponent(productName)}&qty=${qty}`;
     window.location.href = url;
 }
