@@ -19,13 +19,7 @@
             </div>
         </div>
         <div class="logo-container">
-            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 20 C 40 10, 60 10, 80 20 C 80 40, 80 80, 70 90 C 60 80, 40 80, 30 90 C 20 80, 20 40, 20 20 Z" stroke="#78909C" stroke-width="3" fill="none"/>
-                <path d="M35 25 C 45 35, 55 35, 65 25" stroke="#78909C" stroke-width="2" fill="none"/>
-                <path d="M30 90 L 30 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
-                <path d="M70 90 L 70 40" stroke="#CFD8DC" stroke-width="2" stroke-dasharray="4 4"/>
-            </svg>
-            <div class="logo-text">The Shroud Store</div>
+            <a href="index.html"><img src="logo.jpeg" alt="The Shroud Store" class="site-logo"></a>
         </div>
         <nav>
             <ul>
@@ -40,12 +34,10 @@
     </header>
 
     <section class="section-container">
-        <h2 class="section-title">Male Kafn Collection</h2>
+        <h2 class="section-title">Male Kafan Collection</h2>
         
-        <!-- FEATURED PRODUCT: The £40.00 Male Pack -->
         <div class="featured-product">
             <div class="featured-image">
-                <!-- IMPORTANT: Ensure your image is named 'kafan-set.jpg' -->
                 <img src="kafan-set.jpg" alt="Complete Male Kafan & Ghusl Pack">
             </div>
             <div class="featured-details">
@@ -91,41 +83,6 @@
                     </button>
                 </div>
             </div>
-        </div>
-
-        <h3 style="text-align:center; margin: 40px 0 20px; font-weight:400; color:var(--primary-dark);">Individual Items</h3>
-
-        <div class="product-grid">
-            <!-- Cotton Roll -->
-            <div class="product-card">
-                <div class="product-image-placeholder">Cotton Roll Image</div>
-                <div class="product-info">
-                    <h3 class="product-name">Premium Cotton Roll (60m)</h3>
-                    <p class="product-desc">High-quality white cotton fabric roll for custom kafn cutting.</p>
-                    <span class="product-price">£120.00</span>
-                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
-                    <div class="action-row">
-                        <button class="btn-buy snipcart-add-item" data-item-id="cotton-roll-60m" data-item-price="120.00" data-item-url="/male.html" data-item-name="Premium Cotton Roll (60m)" data-item-description="100% Cotton, White" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F?text=Cotton+Roll" data-item-quantity="1">Add to Cart</button>
-                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Premium Cotton Roll')">Bulk Quote</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Standard Male Set (Just Fabric) -->
-            <div class="product-card">
-                <div class="product-image-placeholder">Basic Fabric Set</div>
-                <div class="product-info">
-                    <h3 class="product-name">Standard Male Kafan (Fabric Only)</h3>
-                    <p class="product-desc">Simple 3-piece cotton set (Lifafah, Izaar, Qamees) without Ghusl accessories.</p>
-                    <span class="product-price">£25.00</span>
-                    <div class="qty-wrapper"><span class="qty-label">Qty:</span><input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)"></div>
-                    <div class="action-row">
-                        <button class="btn-buy snipcart-add-item" data-item-id="male-fabric-only" data-item-price="25.00" data-item-url="/male.html" data-item-name="Standard Male Kafan (Fabric Only)" data-item-image="https://via.placeholder.com/150/CFD8DC/37474F?text=Fabric+Only" data-item-quantity="1">Add to Cart</button>
-                        <button class="btn-trade" onclick="requestTradeQuote(this, 'Standard Male Kafan (Fabric Only)')">Bulk Quote</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
