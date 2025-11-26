@@ -24,7 +24,18 @@ function requestTradeQuote(btn, productName) {
     window.location.href = url;
 }
 
-// 3. PRE-FILL CONTACT FORM
+// 3. GALLERY IMAGE SWAPPER (For Caskets)
+function changeImage(thumbnail) {
+    const mainImage = document.getElementById('currentImage');
+    if(mainImage) {
+        mainImage.src = thumbnail.src;
+        // Update active class styling
+        document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+        thumbnail.classList.add('active');
+    }
+}
+
+// 4. PRE-FILL CONTACT FORM
 document.addEventListener('DOMContentLoaded', function() {
     const msgBox = document.getElementById('message');
     if (msgBox) {
