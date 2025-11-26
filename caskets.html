@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shroud Store | Burial Caskets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-actions">
+            <a href="contact.html" class="trade-link">Mosque & Trade Accounts</a>
+            <div class="snipcart-checkout">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="snipcart-items-count">0</span>
+            </div>
+        </div>
+        <div class="logo-container">
+            <a href="index.html"><img src="logo.jpeg" alt="The Shroud Store" class="site-logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="male.html">Male Kafn</a></li>
+                <li><a href="female.html">Female Kafn</a></li>
+                <li><a href="caskets.html" class="active">Caskets</a></li>
+                <li><a href="https://mortuaryequipment.net" target="_blank">Ghusl Equipment</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section-container">
+        <h2 class="section-title">Premium Oak Veneer Casket</h2>
+        
+        <div class="featured-product">
+            <!-- IMAGE GALLERY -->
+            <div class="featured-image">
+                <div class="gallery-container">
+                    <div class="main-image-frame">
+                        <img id="currentImage" src="casket-1.jpg" alt="Oak Casket Main View">
+                    </div>
+                    <div class="thumbnails">
+                        <img src="casket-1.jpg" class="thumb active" onclick="changeImage(this)">
+                        <img src="casket-2.jpg" class="thumb" onclick="changeImage(this)">
+                        <img src="casket-3.jpg" class="thumb" onclick="changeImage(this)">
+                        <img src="casket-4.jpg" class="thumb" onclick="changeImage(this)">
+                        <img src="casket-5.jpg" class="thumb" onclick="changeImage(this)">
+                        <img src="casket-6.jpg" class="thumb" onclick="changeImage(this)">
+                        <img src="casket-7.jpg" class="thumb" onclick="changeImage(this)">
+                        <img src="casket-8.jpg" class="thumb" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT DETAILS -->
+            <div class="featured-details">
+                <span class="stock-badge">Premium Quality</span>
+                <h3 class="featured-title">Oak Veneer Casket (Fully Lined)</h3>
+                <span class="featured-price">£450.00</span>
+                <p>A dignified, high-quality Oak Veneer casket designed specifically for Islamic burial requirements. Expertly crafted with a high-gloss finish and premium interior fittings.</p>
+                
+                <h4>Product Features:</h4>
+                <ul class="content-list">
+                    <li><i class="fas fa-check"></i> <b>Finish:</b> High-quality Oak Veneer</li>
+                    <li><i class="fas fa-check"></i> <b>Interior:</b> Fully lined with White Satin</li>
+                    <li><i class="fas fa-check"></i> <b>Comfort:</b> Includes padded mattress & frill</li>
+                    <li><i class="fas fa-check"></i> <b>Feature:</b> Viewing Window (Optional)</li>
+                    <li><i class="fas fa-check"></i> <b>Fittings:</b> Gold-finish carrying handles</li>
+                    <li><i class="fas fa-check"></i> <b>Construction:</b> Solid reinforced base</li>
+                    <li><i class="fas fa-check"></i> <b>Nameplate:</b> Wooden mount included</li>
+                    <li><i class="fas fa-check"></i> <b>Size:</b> Standard Adult (Custom sizes available)</li>
+                </ul>
+
+                <div class="qty-wrapper" style="justify-content: flex-start;">
+                    <span class="qty-label">Qty:</span>
+                    <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                </div>
+
+                <div class="action-row">
+                    <button class="btn-buy snipcart-add-item" 
+                        data-item-id="casket-oak-premium" 
+                        data-item-price="450.00" 
+                        data-item-url="/caskets.html" 
+                        data-item-name="Premium Oak Veneer Casket" 
+                        data-item-description="Oak veneer, satin lined, viewing window, gold handles" 
+                        data-item-image="casket-1.jpg" 
+                        data-item-quantity="1">
+                        Add to Cart
+                    </button>
+                    <button class="btn-trade" onclick="requestTradeQuote(this, 'Premium Oak Veneer Casket')">
+                        Bulk Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Shroud Store</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="male.html">Male Kafn</a></li>
+                    <li><a href="female.html">Female Kafn</a></li>
+                    <li><a href="caskets.html">Caskets</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>info@theshroudstore.co.uk</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">&copy; 2025 The Shroud Store. All Rights Reserved.</div>
+    </footer>
+
+    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+    <div hidden id="snipcart" data-api-key="ZWY2YTRlZmYtYTUzMi00ZWJlLTlkOTItMjM5ZTRkNTJmMmZjNjM4OTkyNDI3MzM0NzY5OTQ1" data-currency="gbp"></div>
+    <script src="script.js"></script>
+</body>
+</html>
