@@ -24,12 +24,11 @@ function requestTradeQuote(btn, productName) {
     window.location.href = url;
 }
 
-// 3. GALLERY IMAGE SWAPPER (For Caskets)
+// 3. GALLERY IMAGE SWAPPER
 function changeImage(thumbnail) {
     const mainImage = document.getElementById('currentImage');
     if(mainImage) {
         mainImage.src = thumbnail.src;
-        // Update active class styling
         document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
         thumbnail.classList.add('active');
     }
