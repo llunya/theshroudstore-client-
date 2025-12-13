@@ -100,6 +100,7 @@
                         <img src="casket-5.jpg" class="thumb" onclick="changeImage(this)">
                         <img src="casket-6.jpg" class="thumb" onclick="changeImage(this)">
                         <img src="casket-7.jpg" class="thumb" onclick="changeImage(this)">
+                        <!-- Removed 8th image based on previous file list provided (7 images) -->
                     </div>
                 </div>
             </div>
@@ -108,7 +109,7 @@
             <div class="featured-details">
                 <span class="stock-badge">Premium Quality</span>
                 <h3 class="featured-title">Oak Veneer Casket (Fully Lined)</h3>
-                <span class="featured-price">£450.00</span>
+                <span class="featured-price">POA</span>
                 <p>A dignified, high-quality Oak Veneer casket designed specifically for Islamic burial requirements. Expertly crafted with a high-gloss finish, viewing window options, and premium satin interior fittings.</p>
                 
                 <h4>Product Features:</h4>
@@ -125,22 +126,13 @@
 
                 <div class="qty-wrapper" style="justify-content: flex-start;">
                     <span class="qty-label">Qty:</span>
-                    <input type="number" class="qty-input" value="1" min="1" oninput="updateSnipcartQty(this)">
+                    <input type="number" class="qty-input" value="1" min="1">
                 </div>
 
                 <div class="action-row">
-                    <button class="btn-buy snipcart-add-item" 
-                        data-item-id="casket-oak-premium" 
-                        data-item-price="450.00" 
-                        data-item-url="/caskets.html" 
-                        data-item-name="Premium Oak Veneer Casket" 
-                        data-item-description="Oak veneer, satin lined, viewing window, gold handles" 
-                        data-item-image="casket-1.jpg" 
-                        data-item-quantity="1">
-                        Add to Cart
-                    </button>
-                    <button class="btn-trade" onclick="requestTradeQuote(this, 'Premium Oak Veneer Casket')">
-                        Bulk Quote
+                    <!-- Changed to Request Pricing since price is POA -->
+                    <button class="btn-trade" style="width:100%" onclick="requestTradeQuote(this, 'Premium Oak Veneer Casket')">
+                        Request Pricing
                     </button>
                 </div>
             </div>
